@@ -1,5 +1,4 @@
-
-
+import CabinList from "../components/CabinList";
 
 export async function getStaticProps() {
     const cabins = await getCabins();
@@ -20,6 +19,9 @@ function Cabins({ cabins }) {
                     home away from home. The perfect spot for a peaceful, calm vacation.
                     Welcome to paradise.
             </p>
+
+            <CabinList cabins={cabins} />
+
     </div>
     ) 
 }
