@@ -1,6 +1,6 @@
 import CabinView from "@/components/CabinView";
-import Head from "next/head";
 import { getCabin } from "@/lib/data-service";
+import Head from "next/head";
 
 export async function getServerSideProps({ params }) {
   const cabin = await getCabin(params.cabinId);

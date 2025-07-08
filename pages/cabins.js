@@ -1,3 +1,4 @@
+import { getCabins } from "@/lib/data-service";
 import CabinList from "../components/CabinList";
 
 export async function getStaticProps() {
