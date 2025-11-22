@@ -1,4 +1,4 @@
-import CabinCard   from "./CabinCard"
+import CabinCard   from "./CabinCard";
 
 
 function CabinList({ cabins }) {
