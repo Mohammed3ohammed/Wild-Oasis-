@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { auth } from "../lib/"
+import { auth } from "../lib/auth"
 import Image from "next/image";
 
 export default async function Navigation() {
