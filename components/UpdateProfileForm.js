@@ -5,7 +5,7 @@ import { useState } from "react";
 import SubmitButton from "./SubmitButton";
 
 
-function UpdateProfileForm() {
+function UpdateProfileForm () {
     const [count, setCount] = useState();
 
     const { fullName, email, nationality, nationalID, countryFlag} = gust;
@@ -52,4 +52,4 @@ function UpdateProfileForm() {
   );
 }
 
-export default UpdateProfileForm
+export default UpdateProfileForm;
