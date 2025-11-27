@@ -66,3 +66,5 @@ function Button({ filter, handleFilter, activeFilter, children }) {
         </button>
     )
 }
+
+export default Filter;

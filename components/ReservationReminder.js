@@ -4,7 +4,7 @@ import { XMarkIcon } from "@heroicons/react/24/solid";
 import { useReservation } from "./ReservationContext";
 
 
-function  ReservationReminder() {
+function  ReservationReminder () {
     const { range, resetRange } = useReservation();
 
     if (!range.from || !range.to) return null;
