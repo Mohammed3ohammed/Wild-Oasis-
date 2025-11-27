@@ -2,7 +2,7 @@ import Image from "next/image";
 import TextExpander from "./TextExpander";
 import { MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 
-function Cabin({ cabin }) {
+function Cabin ({ cabin }) {
     const { id, name, maxCapacity, regularPrice, discount, image, description } =
     cabin;
     
@@ -50,3 +50,5 @@ function Cabin({ cabin }) {
         </div>
     ); 
 } 
+
+export default Cabin;
