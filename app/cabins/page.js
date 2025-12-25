@@ -1,0 +1,38 @@
+// import { getCabins } from "@/lib/data-service";
+import CabinList from "../components/CabinList";
+
+import { Suspense } from "react";
+import ReservationReminder from "../components/ReservationReminder";
+import Filter from "../components/Filter";
+import Spinner from "../components/Spinner";
+
+export const revalidate = 3600; // ISR
+
+export default async function Cabins({ searchParams }) {
+  const filter = searchParams?.filter ?? "all";
+
+  return (
+    <div>
+      <h1 className="text-4xl mb-5 text-accent-400 font-medium">
+        Our Luxury Cabins
+      </h1>
+
+      <p className="text-primary-200 text-lg mb-10">
+        Cozy yet luxurious cabins, located right in the heart of the Italian
+        Dolomites. Imagine waking up to beautiful mountain views, spending your
+        days exploring the dark forests around, or just relaxing in your private
+        hot tub under the stars.
+      </p>
+
+      <div className="flex justify-end mb-8">
+        <Filter />
+      </div>
+
+      <Suspense fallback={<Spinner />} key={filter}>
+        <CabinList filter={filter} />
+      </Suspense>
+
+      <ReservationReminder />
+    </div>
+  );
+}
