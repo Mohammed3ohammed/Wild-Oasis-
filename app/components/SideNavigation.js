@@ -27,7 +27,7 @@ const navLinks = [
     }
 ];
 
-function SideNavigation() {
+function SideNavigation () {
     const pathname = usePathname();
 
     return (

@@ -1,7 +1,7 @@
-import SelectCountry from "@/components/SelectCountry";
-import UpdateProfileForm from "@/components/UpdateProfileForm";
-import { auth } from "@/lib/auth";
+import { auth } from "../../lib/auth"
 import { getGuest } from "@/lib/data-service";
+import SelectCountry from "../../components/SelectCountry";
+import UpdateProfileForm from "../../components/UpdateProfileForm";
 
 
 
@@ -31,7 +31,7 @@ export default async function Page() {
       </p>
 
         <UpdateProfileForm>
-            <SelectCountry 
+            <SelectCountry
               name="nationality"
               id="nationality"
               className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
