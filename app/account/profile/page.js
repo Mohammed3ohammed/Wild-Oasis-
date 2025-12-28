@@ -1,7 +1,8 @@
-import { auth } from "../../lib/auth";
+// import { auth } from "../../lib/auth";
 import { getGuest } from "../../lib/data-service";
 import SelectCountry from "../../components/SelectCountry";
 import UpdateProfileForm from "../../components/UpdateProfileForm";
+import { getServerSession } from "next-auth";
 
 
 
@@ -12,8 +13,11 @@ export const metadata = {
 
 
 export default async function Page() {
-    const session = await auth();
-      if (!session || !session.user || !session.user.email) return null;
+    // const session = await auth();
+    //   if (!session || !session.user || !session.user.email) return null;
+
+  const session = await getServerSession(authConfig);
+  if (!session?.user?.email) return null;
 
     const guest = await getGuest(session.user.email);
      if (!guest) return null;

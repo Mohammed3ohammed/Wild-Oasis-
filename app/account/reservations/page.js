@@ -1,6 +1,7 @@
 
+import { getServerSession } from "next-auth";
 import ReservationList from "../../components/ReservationList";
-import { auth } from "../../lib/auth"
+// import { auth } from "../../lib/auth";
 import { getBookings } from "../../lib/data-service";
 import Link from "next/link";
 
@@ -9,8 +10,11 @@ export const metadata = {
 }
 
 export default async function Page() {
-    const session = await auth();
-     if (!session || !session.user || !session.user.guestId) return null;
+    // const session = await auth();
+    //  if (!session || !session.user || !session.user.guestId) return null;
+
+      const session = await getServerSession(authConfig);
+  if (!session?.user?.guestId) return null;
 
     const bookings = await getBookings(session.user.guestId)|| [];
 
