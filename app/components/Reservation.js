@@ -43,7 +43,8 @@ import LoginMessage from "./LoginMessage";
 import ReservationForm from "./ReservationForm";
 
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "../lib/auth"; // ملف config NextAuth
+// import { authOptions } from "../lib/auth"; // ملف config NextAuth
+import { authConfig } from "../lib/auth"; // ملف config NextAuth
 
 async function Reservation({ cabin }) {
     const [settings, bookedDates] = await Promise.all([
@@ -51,7 +52,7 @@ async function Reservation({ cabin }) {
         getBookedDatesByCabinId(cabin.id),
     ]);
 
-    const session = await getServerSession(authOptions);
+    const session = await getServerSession(authConfig);
 
     return (
         <div className="grid grid-cols-2 border border-primary-800 min-h-[400px]">
