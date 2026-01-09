@@ -71,7 +71,6 @@ export const authConfig = {
   },
 };
 
-/* 🔥 أهم سطر في المشروع كله */
 const handler = NextAuth(authConfig);
-export { handler as auth }; // auth للسيرفر
-export default handler; // default export للـ API route
+export { handler as auth }; 
+export default handler; 

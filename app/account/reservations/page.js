@@ -1,7 +1,7 @@
 
 import { getServerSession } from "next-auth";
 import ReservationList from "../../components/ReservationList";
-// import { auth } from "../../lib/auth";
+import { authConfig } from "../../lib/auth";
 import { getBookings } from "../../lib/data-service";
 import Link from "next/link";
 
