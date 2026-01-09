@@ -121,7 +121,7 @@ import { supabase } from "./supabase";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-/* ======== تحديث بيانات الضيف ======== */
+
 export async function updateGuest(formData) {
   const session = await auth();
   if (!session) throw new Error("You must be logged in");
@@ -144,7 +144,7 @@ export async function updateGuest(formData) {
   revalidatePath("/account/profile");
 }
 
-/* ======== إنشاء حجز جديد ======== */
+
 export async function createBooking(bookingData, formData) {
   const session = await auth();
   if (!session) throw new Error("You must be logged in");
@@ -168,7 +168,7 @@ export async function createBooking(bookingData, formData) {
   redirect("/cabins/thankyou");
 }
 
-/* ======== حذف حجز ======== */
+
 export async function deleteBooking(bookingId) {
   const session = await auth();
   if (!session) throw new Error("You must be logged in");
@@ -189,7 +189,7 @@ export async function deleteBooking(bookingId) {
   revalidatePath("/account/reservations");
 }
 
-/* ======== تعديل حجز ======== */
+
 export async function updateBooking(formData) {
   const bookingId = Number(formData.get("bookingId"));
   const session = await auth();
@@ -221,12 +221,12 @@ export async function updateBooking(formData) {
   redirect("/account/reservations");
 }
 
-/* ======== تسجيل دخول ======== */
+
 export async function signInAction() {
   redirect("/api/auth/signin/google?callbackUrl=/account");
 }
 
-/* ======== تسجيل خروج ======== */
+
 export async function signOutAction() {
   redirect("/api/auth/signout?callbackUrl=/");
 }

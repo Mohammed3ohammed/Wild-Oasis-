@@ -153,13 +153,13 @@ import { notFound } from "next/navigation";
 import { eachDayOfInterval } from "date-fns";
 import { supabase } from "./supabase";
 
-// جلب بيانات كابينة واحدة
+
 export async function getCabin(id) {
     const { data, error } = await supabase
         .from('cabins')
         .select('*')
         .eq('id', id)
-        .maybeSingle(); // بدل single() عشان آمن لو مفيش صف
+        .maybeSingle(); 
 
     if (error || !data) {
         console.error(error);
@@ -169,13 +169,13 @@ export async function getCabin(id) {
     return data;
 }
 
-// جلب سعر الكابينة
+
 export async function getCabinPrice(id) {
     const { data, error } = await supabase
         .from("cabins")
         .select("regularPrice, discount")
         .eq("id", id)
-        .maybeSingle(); // بدل single()
+        .maybeSingle(); 
 
     if (error) {
         console.error(error);
@@ -184,7 +184,7 @@ export async function getCabinPrice(id) {
     return data;
 }
 
-// جلب كل الكابينات
+
 export const getCabins = async function () {
     const { data, error } = await supabase
         .from('cabins')
@@ -199,7 +199,7 @@ export const getCabins = async function () {
     return data;
 }
 
-// جلب بيانات ضيف واحد
+
 export async function getGuest(email) {
     const { data, error } = await supabase
         .from("guests")
@@ -213,7 +213,7 @@ export async function getGuest(email) {
     return data;
 }
 
-// جلب حجز واحد
+
 export async function getBooking(id) {
     const { data, error } = await supabase
         .from("bookings")
@@ -229,7 +229,7 @@ export async function getBooking(id) {
     return data;
 }
 
-// جلب كل الحجوزات لضيف معين
+
 export async function getBookings(guestId) {
     const { data, error } = await supabase
         .from("bookings")
@@ -245,7 +245,7 @@ export async function getBookings(guestId) {
     return data;
 }
 
-// جلب الأيام المحجوزة لكابينة
+
 export async function getBookedDatesByCabinId(cabinId) {
     const today = new Date();
     today.setUTCHours(0, 0, 0, 0);
@@ -254,7 +254,7 @@ export async function getBookedDatesByCabinId(cabinId) {
         .from("bookings")
         .select("*")
         .eq("cabinId", cabinId)
-        .gte("endDate", today.toISOString()) // كل الحجوزات اللي لسه شغالة
+        .gte("endDate", today.toISOString()) 
         .order("startDate");
 
     if (error) {
@@ -272,7 +272,7 @@ export async function getBookedDatesByCabinId(cabinId) {
     return bookedDates;
 }
 
-// جلب إعدادات الموقع
+
 export async function getSettings() {
     const { data, error } = await supabase
         .from("settings")
@@ -283,10 +283,10 @@ export async function getSettings() {
         throw new Error("Settings could not be loaded");
     }
 
-    return data[0] || null; // ارجع أول صف فقط أو null لو مفيش
+    return data[0] || null; 
 }
 
-// جلب قائمة الدول
+
 export async function getCountries() {
     try {
         const res = await fetch(
@@ -300,7 +300,7 @@ export async function getCountries() {
     }
 }
 
-// إنشاء ضيف جديد
+
 export async function createGuest(newGuest) {
     const { data, error } = await supabase
         .from("guests")
