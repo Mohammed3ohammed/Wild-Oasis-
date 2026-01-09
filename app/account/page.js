@@ -1,4 +1,5 @@
-import { auth } from "../lib/auth";
+import { getServerSession } from "next-auth";
+import { authConfig } from "../lib/auth";
 
 export const metadata = {
     title: "Guest area",
@@ -6,7 +7,7 @@ export const metadata = {
 
 export default async function Page() {
     
-    const session = await auth();
+const session = await getServerSession(authConfig);
 
       if (!session || !session.user || !session.user.name) return null;
 

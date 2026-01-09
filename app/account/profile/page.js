@@ -1,4 +1,4 @@
-// import { auth } from "../../lib/auth";
+import { authConfig } from "../../lib/auth";
 import { getGuest } from "../../lib/data-service";
 import SelectCountry from "../../components/SelectCountry";
 import UpdateProfileForm from "../../components/UpdateProfileForm";
